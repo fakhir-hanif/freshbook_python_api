@@ -6,9 +6,9 @@ import json
 from ItsRelevant.offers.models import FreshbookPayment, Offer, OfferPakage
 from datetime import datetime, timedelta
 
-itsr_url = 'irstamford.freshbooks.com'
-itsr_fb_token = '2165f1a665d97869253ecf11d2f6bbda'
-itsr_unique_ua = 'ItsRelevant'
+itsr_url = 'acount-url'
+itsr_fb_token = 'token'
+itsr_unique_ua = 'user agent'
 
 
 def webhookcallback(request):
@@ -17,7 +17,7 @@ def webhookcallback(request):
                          user_agent_name=itsr_unique_ua)
         call_back_create = freshbooks.call_api('callback.create',
                     {'callback': {'event': 'payment.create',
-                        'uri': 'http://www.itsrelevant.com/deals/webhooks/'}
+                        'uri': 'url to handle request'}
                     })
         if call_back_create.success:
             #call_back_id = call_back_create.callback_id
